@@ -1,7 +1,7 @@
 Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
-Maintainer: Mauro Lizaur <mauro@debian.org
+Maintainer: Mauro Lizaur <mauro@debian.org>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://huayra.conectarigualdad.gob.ar
