@@ -1,6 +1,6 @@
 [Plymouth Theme]
 Name=Huayra
-Description=Splash para Huayra.
+Description=Muestra logo de Huayra en fade-in/out y barra de progreso
 ModuleName=script
 
 [script]

@@ -1,6 +1,84 @@
-wallpaper_image = Image("splash.png");
-screen_width = Window.GetWidth();
-screen_height = Window.GetHeight();
-resized_wallpaper_image = wallpaper_image.Scale(screen_width,screen_height);
-wallpaper_sprite = Sprite(resized_wallpaper_image);
-wallpaper_sprite.SetZ(-100);
+# Gradiente de fondo
+gradiente = Image("gradiente.png");
+
+# En el caso de no usarse en una netbook, Huayra debe reconocer y escalar a la resolucion correcta
+
+ancho_pantalla = Window.GetWidth();
+altura_pantalla = Window.GetHeight();
+
+grad_rescalado = gradiente.Scale(ancho_pantalla, altura_pantalla);
+
+gradiente_sprite = Sprite(grad_rescalado);
+
+gradiente_sprite.SetX(Window.GetWidth() / 2 - grad_rescalado.GetWidth() / 2);
+gradiente_sprite.SetY(Window.GetHeight() / 2 - grad_rescalado.GetHeight() / 2);
+gradiente_sprite.SetZ(-100000);
+
+# Carga logo Huayra
+huayra_logo = Image("logo.png");
+logo_sprite = Sprite(huayra_logo);
+
+logo_sprite.SetX(Window.GetWidth() / 2 - huayra_logo.GetWidth() / 2);
+logo_sprite.SetY(Window.GetHeight() / 2 - huayra_logo.GetHeight() / 2);
+logo_sprite.SetZ(10);
+logo_sprite.SetOpacity(0.2);
+
+
+
+# Add your code here
+alfa = 0.0;
+bucle = 0;
+fun refresh_callback()
+  {
+     logo_sprite.SetOpacity(alfa/100);
+     bucle++;
+     if (bucle < 100){     
+         alfa++;
+         }
+     else{
+	 alfa--;
+	 }
+     if(bucle>200){
+	 bucle = 0;
+         }
+  }
+
+Plymouth.SetRefreshFunction (refresh_callback);
+
+
+#----------------------------------------- Progress Bar --------------------------------
+
+progress_box.image = Image("progress_box_huayra.png");
+progress_box.sprite = Sprite(progress_box.image);
+
+progress_box.x = Window.GetWidth()  / 2 -    progress_box.image.GetWidth()  / 2;
+progress_box.y = Window.GetHeight() * 0.85 - progress_box.image.GetHeight() / 2;
+progress_box.sprite.SetPosition(progress_box.x, progress_box.y, 0);
+
+progress_bar.original_image = Image("progress_bar_huayra.png");
+progress_bar.sprite = Sprite();
+
+progress_bar.x = Window.GetWidth()  / 2 -        progress_bar.original_image.GetWidth() / 2;
+progress_bar.y = Window.GetHeight() / 2 * 1.7  - progress_box.image.GetHeight() / 2 + (progress_box.image.GetHeight() - progress_bar.original_image.GetHeight()) / 2;
+progress_bar.sprite.SetPosition(progress_bar.x, progress_bar.y, 1);
+
+fun progress_callback (duration, progress)
+  {
+    if (progress_bar.image.GetWidth () != Math.Int (progress_bar.original_image.GetWidth () * progress))
+      {
+        progress_bar.image = progress_bar.original_image.Scale(progress_bar.original_image.GetWidth(progress_bar.original_image) * progress, progress_bar.original_image.GetHeight());
+        progress_bar.sprite.SetImage (progress_bar.image);
+      }
+  }
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+
