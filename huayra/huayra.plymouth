@@ -1,6 +1,6 @@
 [Plymouth Theme]
 Name=Huayra
-Description=Muestra logo de Huayra en fade-in/out y barra de progreso
+Description=Muestra logo de Huayra en fade-in/out y timer giratorio
 ModuleName=script
 
 [script]
