@@ -2,7 +2,6 @@ Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
 Maintainer: Fernando Toledo <ragnarok@docksud.com.ar>
-Changed-By: Fernando Toledo <ragnarok@docksud.com.ar>
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.3
 Homepage: http://huayra.conectarigualdad.gob.ar
