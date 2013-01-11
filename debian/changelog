@@ -1,3 +1,9 @@
+plymouth-themes-huayra (1.95-2) testing; urgency=low
+
+  * nuevo version del theme de plymouth 
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Thu, 10 Jan 2013 20:59:38 -0300
+
 plymouth-themes-huayra (1.95-1) testing; urgency=low
 
   * Cambio de formato nativo a quilt.
