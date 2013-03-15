@@ -1,3 +1,10 @@
+plymouth-themes-huayra (2.0) testing; urgency=low
+
+  * debian/source/format now native.
+  * support fsck messages.
+
+ -- Miguel Angel Garcia <miguel.garcia@gmail.com>  Fri, 15 Mar 2013 15:39:03 -0300
+
 plymouth-themes-huayra (1.96-1) testing; urgency=low
 
   * nuevo version del theme de plymouth 

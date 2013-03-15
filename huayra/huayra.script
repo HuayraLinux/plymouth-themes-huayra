@@ -39,6 +39,19 @@ alfa = 0.0;
 bucle = 0;
 cuadros = 0;
 
+
+fsck_running = 0;
+fsck_dev_array;
+fsck_dev_counter = 0;
+fsck_fade_in_counter = 0;
+fsck_done_fading = 0;
+
+stars_array;
+stars_n = 0;
+
+//full_msg = "";
+msgs_line;
+
 fun refresh_callback()
   {
      timer_sprite.SetImage(timer_imagenes[cuadros]);
@@ -71,4 +84,80 @@ fun quit_callback ()
 
 Plymouth.SetQuitFunction(quit_callback);
 
+
+
+
+
+/*
+ * This function will display the most current message */
+fun messageHandler(msg) {
+		
+	if (msg.SubString(0, 5) == "keys:") {
+	
+		msg = msg.SubString(5, strlen(msg));
+	
+	}
+	
+	
+	msgs_line[0] = Sprite(Image.Text(msg, 1, 1, 1, 1, "DejaVu Bold 12"));
+	
+	msgs_line[0].SetPosition((ancho_pantalla / 2) - (msgs_line[0].GetImage().GetWidth() / 2), (altura_pantalla - msgs_line[0].GetImage().GetHeight()) - 20, 10000);
+
+
+
+}
+
+Plymouth.SetMessageFunction(messageHandler);
+
+/**/
+
+/*
+ * Handles the updates passed to the plymouth daemon
+ * for example the FSCK data */
+fun statusHandler(status) {
+	
+	tmp_char;
+	status_array[0] = "";
+	elem_count = 0;
+	
+	for (i = 0; String(status).CharAt(i) != ""; i++) {
+	
+		tmp_char = String(status).CharAt(i);
+		
+		if (tmp_char != ":") {
+		
+			status_array[elem_count] += tmp_char;
+		
+		}
+		else {
+			
+			elem_count++;
+			status_array[elem_count] = "";
+			
+		}
+		
+	}
+
+	if (status_array[0] == "fsck") {
+	
+		already_added = 0;
+		
+		if (fsck_running == 0) {
+			
+			/*
+			 * use the dedicated message handler for this
+			 * since there is no messages about fsck checks
+			 * currently... */
+			messageHandler("Chequeando disco rigido, esta operación puede tardar. Presiona 'C' para abortar el chequeo");
+			
+			fsck_running = 1;
+			
+		}	
+	}
+	if (status_array[0] == "") {
+		messageHandler("");
+	}
+}
+
+Plymouth.SetUpdateStatusFunction(statusHandler);
 
