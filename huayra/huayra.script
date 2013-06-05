@@ -98,7 +98,14 @@ fun messageHandler(msg) {
 	
 	}
 	
-	
+	if (msg == "Restarting system...") {
+		msg = "Reiniciando Huayra GNU/Linux...";
+	}
+
+	if (msg == "Shutting down system...") {
+		msg = "Apagando la computadora...";
+	}
+
 	msgs_line[0] = Sprite(Image.Text(msg, 1, 1, 1, 1, "DejaVu Bold 12"));
 	
 	msgs_line[0].SetPosition((ancho_pantalla / 2) - (msgs_line[0].GetImage().GetWidth() / 2), (altura_pantalla - msgs_line[0].GetImage().GetHeight()) - 20, 10000);
