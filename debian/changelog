@@ -1,3 +1,9 @@
+plymouth-themes-huayra (2.1) testing; urgency=low
+
+  * cambios de mensajes de apagado
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Wed, 05 Jun 2013 15:55:28 -0300
+
 plymouth-themes-huayra (2.0) testing; urgency=low
 
   * debian/source/format now native.
