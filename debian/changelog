@@ -1,3 +1,9 @@
+plymouth-themes-huayra (2.2) testing; urgency=low
+
+  * nuevo theme v2
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Tue, 10 Sep 2013 13:16:07 -0300
+
 plymouth-themes-huayra (2.1) testing; urgency=low
 
   * cambios de mensajes de apagado

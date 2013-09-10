@@ -10,16 +10,15 @@ case "$1" in
          sed -i -e '/GRUB_DISTRIBUTOR=/ s/=.*/=Huayra/' \
                 -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
                 -e '/GRUB_GFXMODE=/ s/=.*/=1024x600x32/' \
-                -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash"/' \
+                -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash vga=788"/' \
                 /etc/default/grub
-       fi 
-  
+       fi
 
        # podemos setear al theme?
        if [ -x /usr/sbin/plymouth-set-default-theme ];
        then
                 # actualizame al grub.
-                plymouth-set-default-theme huayra
+                plymouth-set-default-theme huayra_v2
        fi
 
 #       # hay grub? podemos actualizar?
