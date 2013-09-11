@@ -20,7 +20,6 @@ for (i = 0; i < 27; i++)
 for (i = 0; i < 27; i++)
     timer_imagenes_flip[i] = Image("vaca-volando-flip--" + i + ".png");
 
-
 # Sprite normal
 timer_sprite = Sprite();
 timer_sprite.SetX(Window.GetWidth());
@@ -219,116 +218,156 @@ fun updateHandler(msg) {
 	#original.SetPosition((ancho_pantalla / 2) - (original.GetImage().GetWidth() / 2), (altura_pantalla -original.GetImage().GetHeight()) - 40, 10000);
 
 	if (msg == "Using makefile-style concurrent boot in runlevel S") {
+		translated = "true";
 		msg = "Usando booteo estilo makefile en runlevel S";
 	}
+	if (msg == "Using makefile-style concurrent boot in runlevel S.") {
+		translated = "true";
+		msg = "Usando booteo estilo makefile en runlevel S.";
+	}
 	if (msg == "Starting the hotplug events dispatcher: udevd") {
+		translated = "true";
 		msg = "Iniciando el disparador de eventos hotplug: udevd";
 	}
 	if (msg == "Synthesizing the initial hotplug events...") {
+		translated = "true";
 		msg = "Sintetizando los eventos hotplug iniciales...";
 	}
 	if (msg == "Waiting for /dev to be fully populated...") {
+		translated = "true";
 		msg = "Esperando que /dev esté completamente poblada...";
 	}
 	if (msg == "Setting preliminary keymap...") {
+		translated = "true";
 		msg = "Configurando mapa preliminar de caracteres...";
 	} 
 	if (msg == "Activating swap...") {
+		translated = "true";
 		msg = "Activando memoria de intercambio...";
 		icon_swap.SetOpacity(1);
 	}
 	if (msg == "Checking root file system...") {
+		translated = "true";
 		msg = "Analizando systema de archivos raíz...";
 		icon_check.SetOpacity(1);
 	}
 	if (msg == "Cleaning up temporary files...") {
+		translated = "true";
 		msg = "Limpiando archivos temporales...";
 		icon_temp.SetOpacity(1);
 	} 
 	if (msg == "Loading kernel module loop.") {
+		translated = "true";
 		msg = "Cargando bucle de modulo de kernel.";
 	}
 	if (msg == "Activating lvm and md swap...") {
+		translated = "true";
 		msg = "Activando lvm y md swap...";
 	}
 	if (msg == "Checking file systems...") {
+		translated = "true";
 		msg = "Analizando sistemas de archivo...";
 	}
 	if (msg == "Mounting local filesystems...") {
+		translated = "true";
 		msg = "Montando sistemas de archivo locales...";
 		icon_mount.SetOpacity(1);
 	} 
 	if (msg == "Activating swapfile swap...") {
+		translated = "true";
 		msg = "Activando archivo de intercambio...";
 	}
 	if (msg == "Setting kernel variables ...") {
+		translated = "true";
 		msg = "Configurando variables del kernel...";
 	} 
 	if (msg == "Configuring network interfaces...") {
+		translated = "true";
 		msg = "Configurando interfaces de red...";
 		icon_network.SetOpacity(1);
 	} 
 	if (msg == "Setting console screen modes.") {
+		translated = "true";
 		msg = "Configurando modos de pantalla de consola.";
 	}
 	if (msg == "Skipping font and keymap setup (handled by console-setup)") {
+		translated = "true";
 		msg = "Salteando configuración de fuentes y mapas de caracteres (administrado por console-setup)";
 	}
 	if (msg == "Setting up console font and keymap...") {
+		translated = "true";
 		msg = "Configurando fuente de consola y mapa de caracteres...";
 	} 
 	if (msg == "Setting sensors limits") {
+		translated = "true";
 		msg = "Configurando limites de sensores";
 	}
 	if (msg == "Using makefile-style concurrent boot in runlevel 2.") {
+		translated = "true";
 		msg = "Usando booteo estilo makefile en runlevel 2.";
 	}
 	if (msg == "Starting enhanced syslogd: rsyslogd") {
+		translated = "true";
 		msg = "Iniciando syslogd mejorado: rsyslogd";
 	} 
 	if (msg == "Starting system message bus: dbus") {
+		translated = "true";
 		msg = "Iniciando bus de systema de mensajes: dbus";
 	} 
 	if (msg == "Starting network connection manager: NetworkManager") {
+		translated = "true";
 		msg = "Iniciando administrador de conexiones de red: NetworkManager";
 	} 	
 	if (msg == "Starting ACPI services...") {
+		translated = "true";
 		msg = "Iniciando servicios ACPI...";
 	}
 	if (msg == "Starting virtual private network daemon:") {
+		translated = "true";
 		msg = "Iniciando demonio de red privada virtual:";
 	}
 	if (msg == "Starting GNOME Display Manager: gdm3") {
+		translated = "true";
 		msg = "Iniciando Administrado de Ventanas: gdm3";
 	} 
 	if (msg == "Enabling power management...") {
+		translated = "true";
 		msg = "Activando administración de energía...";
 	} 
 	if (msg == "Starting Avahi mDNS/DNS-SD Daemon: avahi-daemon") {
+		translated = "true";
 		msg = "Iniciando Demonio Avahi mDNS/DNS-SD avahi-daemon";
 	}
 	if (msg == "Starting Common Unix Printing System: cupsd") {
+		translated = "true";
 		msg = "Iniciando Sistema de Impresión en Linux: cupsd";
 	}
 	if (msg == "Starting the epoptes daemon:") {
+		translated = "true";
 		msg = "Iniciando el demonio de epoptes:";
 	}
 	if (msg == "Starting web server: lighttpd") {
+		translated = "true";
 		msg = "Iniciando servidor web: lighttpd";
 	}
 	if (msg == "Loading cpufreq kernel modules...") {
+		translated = "true";
 		msg = "Cargando modulos de kernel cpufreq...";
 	}
 	if (msg == "CPUFreq Utilities: Setting ondemand CPUFreq governor...") {
+		translated = "true";
 		msg = "Utilidades CPUFreq: configurando gobernante CPUFreq ondemand"; /* ?? */
 	}
 	if (msg == "disabled, governor not available...") {
+		translated = "true";
 		msg = "deshabilitado, no hay gobernante disponible...";
 	}
 	if (msg == "Starting acpi_fakekey daemon...") {
+		translated = "true";
 		msg = "Iniciando demonio acpi_fakekey...";
 	} 
 	if (msg == "Setting parameters of disc:") {
+		translated = "true";
 		msg = "Configurando parametros del disco:";
 	} 
 
@@ -336,70 +375,107 @@ fun updateHandler(msg) {
 /* Apagado */
 
 	if (msg == "Stopping GNOME Display Manager: gdm3") {
+		translated = "true";
 		msg = "Apagando Manejador de Ventanas GNOME: gdm3";
 	}
 	if (msg == "Stopping the epoptes daemon:") {
+		translated = "true";
 		msg = "Apagando el demonio de epoptes:";
 	}
 	if (msg == "Stopping web server: lighttpd") {
+		translated = "true";
 		msg = "Apagando servidor web: lighttpd";
 	}
 	if (msg == "Stopping virtual private network daemon:") {
+		translated = "true";
 		msg = "Apagando demonio de red privada virtual:";
 	}
 	if (msg == "PulseAudio") {
+		translated = "true";
 		msg = "PulseAudio";
 	}
 	if (msg == "Stopping Avahi mDNS/DNS-SD Daemon: avahi-daemon") {
+		translated = "true";
 		msg = "Apagando Demonio Avahi mDNS/DNS-SD avahi-daemon";
 	}
 	if (msg == "Asking all remaining processes to terminate...") {
+		translated = "true";
 		msg = "Pidiendo a los procesos restantes que terminen...";
 	}
 	if (msg == "All processes ended within 1 seconds...") { /* ver como parsear esto */
+		translated = "true";
 		msg = "Todos los procesos terminaron en 1 segundo...";
 	}
 	if (msg == "Stopping enhanced syslogd: rsyslogd") {
+		translated = "true";
 		msg = "Apagando syslogd mejorado: rsyslogd";
 	}
 	if (msg == "Saving the system clock.") {
+		translated = "true";
 		msg = "Guardando el estado del reloj de sistema.";
 	}
 	if (msg == "Deconfiguring network interfaces...") {
+		translated = "true";
 		msg = "Desconfigurando interfaces de red...";
 	}
 	if (msg == "Hardware Clock updated to") { /* Ver como parsear la primera parte */
+		translated = "true";
 		msg = "Reloj interno actualizado a ";
 	}
 	if (msg == "Deactivating swap...") {
+		translated = "true";
 		msg = "Desactivando memoria de intercambio...";
 	}
 	if (msg == "Unmounting local filesystems...") {
+		translated = "true";
 		msg = "Desmontanto sistemas de archivo locales...";
 	}
 	if (msg == "Will now restart.") {
+		translated = "true";
 		msg = "Huayra va a reiniciar.";
 	}
 	if (msg == "Will now halt.") {
+		translated = "true";
 		msg = "Huayra fuera!";
 	}
+
+	if (translated == "true") {
+		msg = msg;
+	} else {
+		msg = "";
+	}
+
 	msgs_line[0] = Sprite(Image.Text(msg, 0.4, 0.4, 1, 1, "Rosario Bold 12"));
 	msgs_line[0].SetPosition((medio) - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y + 80), 10000);
 }
 
-fun messageHandler(msg)
+fun messageHandler(msgb)
 {
-	if (msg == "Restarting system...") {
-		msg = "Reiniciando Huayra GNU/Linux...";
+	if (msgb == "Restarting system...") {
+		translated = "true";
+		msgb = "Reiniciando Huayra GNU/Linux...";
 	}
-	if (msg == "Shutting down system...") {
-		msg = "Apagando la computadora...";
+	if (msgb == "Shutting down system...") {
+		translated = "true";
+		msgb = "Apagando la computadora...";
+	}
+	if (msgb == "Please remove the disc, close the tray (if any) and press ENTER to continue") {
+		translated = "true";
+		msgb = "Por favor, quite el disco, cierre la bandeja y pulse ENTER para continuar";
+	}
+
+	if (translated == "true") {
+		msgb = msgb;
+	} else {
+		msgb = "";
 	}
 
 	msg1_y = logo_sprite.GetY() + logo_height + 10;
-	msg1 = Sprite(Image.Text(msg, 0.4, 0.4, 1, 1, "Rosario Bold 14"));
+	msg1 = Sprite(Image.Text(msgb, 0.4, 0.4, 1, 1, "Rosario Bold 14"));
 	msg1.SetPosition((medio) - (msg1.GetImage().GetWidth() /2 ),msg1_y, 10000);
 
+
 }
+
 Plymouth.SetUpdateStatusFunction(updateHandler);
 Plymouth.SetMessageFunction(messageHandler);
