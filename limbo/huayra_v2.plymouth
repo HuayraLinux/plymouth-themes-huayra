@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Limbo
+Description=Muestra logo de Huayra en fade-in/out y timer vaca volando
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/limbo
+ScriptFile=/usr/share/plymouth/themes/limbo/huayra_limbo.script
