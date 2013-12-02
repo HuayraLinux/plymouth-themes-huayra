@@ -7,9 +7,7 @@ altura_pantalla = Window.GetHeight();
 medio = ancho_pantalla / 2;
 
 grad_rescalado = gradiente.Scale(ancho_pantalla, altura_pantalla);
-
 gradiente_sprite = Sprite(grad_rescalado);
-
 gradiente_sprite.SetX(Window.GetWidth() / 2 - grad_rescalado.GetWidth() / 2);
 gradiente_sprite.SetY(Window.GetHeight() / 2 - grad_rescalado.GetHeight() / 2);
 gradiente_sprite.SetZ(-100000);
@@ -34,20 +32,6 @@ timer_sprite_flip.SetY(Window.GetHeight() * 0.70 - timer_imagenes[1].GetHeight()
 timer_sprite_flip.SetZ(11);
 timer_sprite_flip.SetOpacity(1);
 
-
-# Nubes
-#nube1_img = Image("nube1.png");
-#nube1 = Sprite(nube1_img);
-#nube1.SetX(0);
-#nube1.SetY(Window.GetHeight() * 0.25 - nube1_img.GetHeight() / 2);
-#nube1.SetOpacity(0.8);
-
-#nube2_img = Image("nube2.png");
-#nube2 = Sprite(nube2_img);
-#nube2.SetX(0);
-#nube2.SetY(Window.GetHeight() * 0.75 - nube1_img.GetHeight() / 2);
-#nube2.SetOpacity(0);
-
 # Carga logo Huayra
 huayra_logo = Image("logo.png");
 # Escala el logo proporcionalmente segun tamaño de pantalla.
@@ -62,6 +46,13 @@ logo_sprite.SetY((Window.GetHeight() / 2) - logo_height);
 logo_sprite.SetZ(10);
 logo_sprite.SetOpacity(0.2);
 
+# Carga brillo sobre logo
+brillo = Image("brillo.png");
+brillo_rescalado = brillo.Scale(ancho_pantalla, altura_pantalla);
+brillo_sprite = Sprite(brillo_rescalado);
+brillo_sprite.SetX(Window.GetWidth() / 2 - grad_rescalado.GetWidth() / 2);
+brillo_sprite.SetY(Window.GetHeight() / 2 - grad_rescalado.GetHeight() / 2);
+brillo_sprite.SetZ(100000);  #Lo pone al frente de todo
 
 #iconos
 
@@ -445,8 +436,8 @@ fun updateHandler(msg) {
 		msg = "";
 	}
 
-	msgs_line[0] = Sprite(Image.Text(msg, 0.4, 0.4, 1, 1, "Asap Regular 10"));
-	msgs_line[0].SetPosition((medio) - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y + 80), 10000);
+	msgs_line[0] = Sprite(Image.Text(msg, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12"));
+	msgs_line[0].SetPosition((medio) - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y - 80), 10000);
 }
 
 fun messageHandler(msgb)
@@ -471,7 +462,7 @@ fun messageHandler(msgb)
 	}
 
 	msg1_y = logo_sprite.GetY() + logo_height + 10;
-	msg1 = Sprite(Image.Text(msgb, 0.4, 0.4, 1, 1, "Asap Regular 11"));
+	msg1 = Sprite(Image.Text(msgb, 0.26, 026, 0.26, 0.89, "Rosario Bold 14"));
 	msg1.SetPosition((medio) - (msg1.GetImage().GetWidth() /2 ),msg1_y, 10000);
 
 
