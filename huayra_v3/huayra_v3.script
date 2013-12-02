@@ -21,43 +21,40 @@ for (i = 0; i < 27; i++)
 # Sprite normal
 timer_sprite = Sprite();
 timer_sprite.SetX(Window.GetWidth());
-timer_sprite.SetY(Window.GetHeight() * 0.70 - timer_imagenes[1].GetHeight() / 2);
+timer_sprite.SetY(Window.GetHeight() * 0.30 - timer_imagenes[1].GetHeight() / 2);
 timer_sprite.SetZ(11);
 timer_sprite.SetOpacity(1);
 
 # Sprite flipeado
 timer_sprite_flip = Sprite();
 timer_sprite_flip.SetX(0);
-timer_sprite_flip.SetY(Window.GetHeight() * 0.70 - timer_imagenes[1].GetHeight() / 2);
+timer_sprite_flip.SetY(Window.GetHeight() * 0.30 - timer_imagenes[1].GetHeight() / 2);
 timer_sprite_flip.SetZ(11);
 timer_sprite_flip.SetOpacity(1);
 
 # Carga logo Huayra
 huayra_logo = Image("logo.png");
-# Escala el logo proporcionalmente segun tamaño de pantalla.
-logo_ratio = huayra_logo.GetWidth() / huayra_logo.GetHeight();
-logo_height = Window.GetHeight() * 0.43333333;
-logo_width = logo_height * logo_ratio;
-huayra_logo = huayra_logo.Scale(logo_width, logo_height);
+
 logo_sprite = Sprite(huayra_logo);
+
 # Posiciona el logo por encima del centro
 logo_sprite.SetX(Window.GetWidth() / 2 - huayra_logo.GetWidth() / 2);
-logo_sprite.SetY((Window.GetHeight() / 2) - logo_height);
+logo_sprite.SetY((Window.GetHeight() / 2) - huayra_logo.GetHeight() / 2);
 logo_sprite.SetZ(10);
 logo_sprite.SetOpacity(0.2);
 
 # Carga brillo sobre logo
 brillo = Image("brillo.png");
-brillo_rescalado = brillo.Scale(ancho_pantalla, altura_pantalla);
-brillo_sprite = Sprite(brillo_rescalado);
-brillo_sprite.SetX(Window.GetWidth() / 2 - grad_rescalado.GetWidth() / 2);
-brillo_sprite.SetY(Window.GetHeight() / 2 - grad_rescalado.GetHeight() / 2);
+brillo_sprite = Sprite(brillo);
+brillo_sprite.SetX(Window.GetWidth() / 2 - brillo.GetWidth() / 2);
+brillo_sprite.SetY(Window.GetHeight() / 2 - brillo.GetHeight() / 2);
 brillo_sprite.SetZ(100000);  #Lo pone al frente de todo
 
 #iconos
 
 total_i = 7;
 icon_w = 64;
+icon_y = logo_sprite.GetY() + huayra_logo.GetHeight() + 50;
 space = 32;
 space2 = space + icon_w;
 ancho_p = Window.GetWidth();
@@ -68,7 +65,6 @@ pos_icon1 = ((ancho_p) - ((total_i * icon_w) + ((total_i - 1) * space)))/2;
 
 # Swap
 icon_swap_img = Image("swap.png");
-icon_y = (Window.GetHeight() - icon_swap_img.GetHeight() - 50);
 icon_swap = Sprite(icon_swap_img);
 icon_swap.SetX(pos_icon1);
 icon_swap.SetY(icon_y);
@@ -204,9 +200,6 @@ Plymouth.SetQuitFunction(quit_callback);
 /*
  * This function will display the most current message */
 fun updateHandler(msg) {
-
-	#original = Sprite(Image.Text(msg, 1, 0.5, 0, 1, "Rosario Bold 14"));
-	#original.SetPosition((ancho_pantalla / 2) - (original.GetImage().GetWidth() / 2), (altura_pantalla -original.GetImage().GetHeight()) - 40, 10000);
 
 	if (msg == "Using makefile-style concurrent boot in runlevel S") {
 		translated = "true";
@@ -437,7 +430,7 @@ fun updateHandler(msg) {
 	}
 
 	msgs_line[0] = Sprite(Image.Text(msg, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12"));
-	msgs_line[0].SetPosition((medio) - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y - 80), 10000);
+	msgs_line[0].SetPosition( medio - (msgs_line[0].GetImage().GetWidth() / 2), (icon_y + icon_swap_img.GetHeight() + 30), 10000);
 }
 
 fun messageHandler(msgb)
@@ -461,9 +454,9 @@ fun messageHandler(msgb)
 		msgb = "";
 	}
 
-	msg1_y = logo_sprite.GetY() + logo_height + 10;
+	msg1_y = logo_sprite.GetY() + logo_huayra.GetHeight() + 20;
 	msg1 = Sprite(Image.Text(msgb, 0.26, 026, 0.26, 0.89, "Rosario Bold 14"));
-	msg1.SetPosition((medio) - (msg1.GetImage().GetWidth() /2 ),msg1_y, 10000);
+	msg1.SetPosition( medio - (msg1.GetImage().GetWidth() /2 ) , msg1_y, 10000 );
 
 
 }
