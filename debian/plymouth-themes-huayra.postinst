@@ -18,7 +18,7 @@ case "$1" in
        if [ -x /usr/sbin/plymouth-set-default-theme ];
        then
                 # actualizame al grub.
-                plymouth-set-default-theme huayra_v2
+                plymouth-set-default-theme huayra_v3
        fi
 
 #       # hay grub? podemos actualizar?
