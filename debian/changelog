@@ -1,3 +1,9 @@
+plymouth-themes-huayra (2.5) unstable; urgency=low
+
+  * actualizacion de dependencias para jessie
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Mon, 22 Sep 2014 10:52:43 -0300
+
 plymouth-themes-huayra (2.4) unstable; urgency=low
 
   * correccion theme v3

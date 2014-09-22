@@ -8,9 +8,12 @@ Homepage: http://huayra.conectarigualdad.gob.ar
 
 Package: plymouth-themes-huayra
 Architecture: all
-Depends: ${misc:Depends}, plymouth-drm (>= 0.8.5.1-5), 
-         firmware-linux-nonfree, debianutils (>= 4.3.2)
-Provides: plymouth-theme
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-7),
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core,
 Description: Graphical Boot Animation and Logger (Huayra theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
