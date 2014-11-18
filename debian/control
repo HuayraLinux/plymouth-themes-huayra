@@ -2,7 +2,7 @@ Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
 Maintainer: Fernando Toledo <ragnarok@docksud.com.ar>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: cdbs, debhelper (>= 9.20120909), config-package-dev (>= 5.1.1~)
 Standards-Version: 3.9.3
 Homepage: http://huayra.conectarigualdad.gob.ar
 
@@ -11,9 +11,11 @@ Architecture: all
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- plymouth (>= 0.9.0-7),
+ plymouth (>= 0.8.5.1-5),
  fontconfig-config,
- fonts-dejavu-core | ttf-dejavu-core,
+ fonts-dejavu-core | ttf-dejavu-core
+Provides: ${diverted-files}
+Conflicts: ${diverted-files}
 Description: Graphical Boot Animation and Logger (Huayra theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for

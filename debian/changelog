@@ -1,3 +1,10 @@
+plymouth-themes-huayra (2.6) unstable; urgency=low
+
+  * Actualizacion para notificar los procesos ejecutandose
+    mientras inicia el sistema.
+
+ -- Mauro <mauro@sdf.org>  Thu, 13 Nov 2014 15:42:30 -0300
+
 plymouth-themes-huayra (2.5) unstable; urgency=low
 
   * actualizacion de dependencias para jessie
