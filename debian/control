@@ -11,7 +11,7 @@ Architecture: all
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- plymouth (>= 9.0-7),
+ plymouth (>= 0.9.0-7),
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
 Provides: ${diverted-files}
