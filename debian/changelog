@@ -1,3 +1,9 @@
+plymouth-themes-huayra (2.7) UNRELEASED; urgency=low
+
+  * Bump de plymouth usando la version de jessie.
+
+ --  <mauro@sdf.org>  Tue, 18 Nov 2014 14:11:17 -0300
+
 plymouth-themes-huayra (2.6) unstable; urgency=low
 
   * Actualizacion para notificar los procesos ejecutandose
