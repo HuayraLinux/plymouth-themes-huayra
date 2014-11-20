@@ -11,10 +11,12 @@ Architecture: all
 Depends:
  ${misc:Depends},
  ${shlibs:Depends},
- plymouth (>= 0.9.0-7),
+ plymouth (>= 0.8.5.1-5),
  fontconfig-config,
- fonts-dejavu-core | ttf-dejavu-core
-Provides: ${diverted-files}
+ fonts-dejavu-core | ttf-dejavu-core,
+ plymouth-drm (>= 0.8.5.1-5),
+ firmware-linux-nonfree, debianutils (>= 4.3.2)
+Provides: plymouth-theme, ${diverted-files}
 Conflicts: ${diverted-files}
 Description: Graphical Boot Animation and Logger (Huayra theme)
  Plymouth provides an attractive boot animation in place of the text messages
