@@ -9,14 +9,6 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-#%:
-#	dh $@
-
-DEB_DISPLACE_EXTENSION = .huayra
-
-DEB_DIVERT_FILES_plymouth-themes-huayra += /lib/lsb/init-functions.huayra
-DEB_UNDIVERT_FILES_plymouth-themes-huayra += /lib/lsb/init-functions.huayra
-
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/rules/config-package.mk
+%:
+	dh $@
 

@@ -1,6 +1,7 @@
-plymouth-themes-huayra (2.8) UNRELEASED; urgency=low
+plymouth-themes-huayra (2.8) unstable; urgency=low
 
   * Bump de dependencias para jessie
+  * Quitando config-package-dev (ahora con systemd)
 
  -- Mauro <mauro@sdf.org>  Tue, 18 Nov 2014 16:16:17 -0300
 
