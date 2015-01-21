@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=HuayraV3
+Description=Muestra logo de Huayra en fade-in/out y timer vaca volando
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/huayra_v3
+ScriptFile=/usr/share/plymouth/themes/huayra_v3/huayra_v3.script
