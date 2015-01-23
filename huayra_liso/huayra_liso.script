@@ -13,31 +13,15 @@ fondo_sprite.SetY(Window.GetHeight() / 2 - fondo_rescalado.GetHeight() / 2);
 fondo_sprite.SetZ(-100000);
 
 # Carga frames de animacion
-#for (i = 0; i < 27; i++)
-#    timer_imagenes[i] = Image("vaca-volando--" + i + ".png");
-#for (i = 0; i < 27; i++)
-#    timer_imagenes_flip[i] = Image("vaca-volando-flip--" + i + ".png");
+for (i = 0; i < 199; i++)
+    timer_imagenes[i] = Image("render/vaca_cabeza-" + i + ".png");
 
-# Sprite vaca
-vaca_stencil = Image("vaca_stencil.png");
-vaca_sprite = Sprite();
-vaca_sprite.SetX(Window.GetWidth() / 2);
-vaca_sprite.SetY(Window.GetHeight() / 2);
+
+timer_sprite = Sprite();
+timer_sprite.SetX(Window.GetWidth() / 2);
+timer_sprite.SetY(Window.GetHeight() / 2);
 timer_sprite.SetZ(11);
 timer_sprite.SetOpacity(1);
-
-#timer_sprite = Sprite();
-#timer_sprite.SetX(Window.GetWidth());
-#timer_sprite.SetY(Window.GetHeight() * 0.30 - timer_imagenes[1].GetHeight() / 2);
-#timer_sprite.SetZ(11);
-#timer_sprite.SetOpacity(1);
-
-# Sprite flipeado
-#timer_sprite_flip = Sprite();
-#timer_sprite_flip.SetX(0);
-#timer_sprite_flip.SetY(Window.GetHeight() * 0.30 - timer_imagenes[1].GetHeight() / 2);
-#timer_sprite_flip.SetZ(11);
-#timer_sprite_flip.SetOpacity(1);
 
 # Carga logo Huayra
 huayra_logo = Image("logo.png");
@@ -138,25 +122,34 @@ msgs_line;
 original;
 msg1;
 
-#timer_sprite.SetImage(timer_imagenes[1]);
-vaca_sprite.SetImage(vaca_stencil);
-#vaca1width = timer_imagenes[1].GetWidth();
-#timer_sprite.SetX(Window.GetWidth() / 2);
-#desplazamiento = -10;
+timer_sprite.SetImage(timer_imagenes[1]);
+vaca1width = timer_imagenes[1].GetWidth();
+vaca1height = timer_imagenes[1].GetHeight() - 10;
+timer_sprite.SetX(Window.GetWidth() - vaca1width);
+timer_sprite.SetY(Window.GetHeight());
+desplazamiento = -10;
 
 cuadros = 0;
 fun refresh_callback()
   {
 
-#    cuadros++;
-#    if (cuadros > 27){
-#        cuadros = 0;
-#    }
+    cuadros++;
+    if (cuadros > 184){
+        cuadros = 0;
+    }
 
-#    nube1.SetX(nube1.GetX() + 1);   
 
-#    timer_sprite.SetX(timer_sprite.GetX() + desplazamiento);
-#    vaca_x = timer_sprite.GetX();
+    timer_sprite.SetY(timer_sprite.GetY() + desplazamiento);
+    vaca_pos_final = Window.GetHeight() - vaca1height;
+    vaca_y = timer_sprite.GetY();
+    timer_sprite.SetImage(timer_imagenes[cuadros]);
+    
+    if (vaca_y <= vaca_pos_final) {
+        desplazamiento = 0;
+    } else {
+        desplazamiento = -10;
+    }
+    
 #    if (desplazamiento < 0) {
 #        timer_sprite.SetImage(timer_imagenes[cuadros]);
 #    } else {
