@@ -1,3 +1,11 @@
+plymouth-themes-huayra (2.9) UNRELEASED; urgency=medium
+
+  * Se agregaron temas nuevos.
+  * Se separo en diferentes temas individuales.
+  * Se agregaron configs de debconf para los temas.
+
+ -- Mauro <mauro@sdf.org>  Tue, 03 Feb 2015 16:57:56 -0300
+
 plymouth-themes-huayra (2.8) unstable; urgency=low
 
   * Bump de dependencias para jessie

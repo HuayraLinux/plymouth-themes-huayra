@@ -1,0 +1,14 @@
+Template: plymouth-themes-huayra/theme
+Type: select
+Choices: limbo, huayra_liso, huayra_v3, huayra_v2, huayra
+Default: huayra_v3
+Description: Tema para plymouth:
+ Seleccione el tema que desea habilitar en plymouth
+
+Template: plymouth-themes-huayra/resolution
+Type: select
+Choices: 800x600x32, 1024x600x32, 1024x768x32, 1280x1024x32, 1366x768x32, 1440x900x32
+Default: 800x600x32
+Description: Resolución de entrada de plymouth:
+ Seleccione la resolución que debe tener plymouth al iniciar.
+ MarblePoint(1366x768), CedarTrail/TangoPoint(1024x600)

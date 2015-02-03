@@ -2,14 +2,20 @@
 
 set -e
 
+. /usr/share/debconf/confmodule
+
 case "$1" in
 
-    configure)
+    configure|"")
 
        if [ -f /etc/default/grub ]; then
+
+	 db_get plymouth-themes-huayra/resolution
+         resolution="$RET"
+
          sed -i -e '/GRUB_DISTRIBUTOR=/ s/=.*/=Huayra/' \
                 -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
-                -e '/GRUB_GFXMODE=/ s/=.*/=1024x600x32/' \
+                -e '/GRUB_GFXMODE=/ s/=.*/=$resolution/' \
                 -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash vga=788"/' \
                 /etc/default/grub
        fi
@@ -17,8 +23,12 @@ case "$1" in
        # podemos setear al theme?
        if [ -x /usr/sbin/plymouth-set-default-theme ];
        then
-                # actualizame al grub.
-                plymouth-set-default-theme huayra_v3
+           # actualizame al grub.
+
+           db_get plymouth-themes-huayra/theme
+           theme="$RET";
+           plymouth-set-default-theme $theme;
+
        fi
 
 #       # hay grub? podemos actualizar?

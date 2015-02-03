@@ -12,6 +12,28 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core,
+ plymouth-themes-huayra-v1,
+ plymouth-themes-huayra-v2,
+ plymouth-themes-huayra-v3,
+ plymouth-themes-huayra-limbo,
+ plymouth-themes-huayra-liso
+Description: Graphical Boot Animation and Logger
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains all the Huayra themes.
+
+Package: plymouth-themes-huayra-v1
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
 Description: Graphical Boot Animation and Logger (Huayra theme)
@@ -20,3 +42,68 @@ Description: Graphical Boot Animation and Logger (Huayra theme)
  viewing after boot.
  .
  This package contains the Huayra theme.
+
+Package: plymouth-themes-huayra-v2
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Description: Graphical Boot Animation and Logger (Huayra theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra v2 theme.
+
+Package: plymouth-themes-huayra-v3
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Description: Graphical Boot Animation and Logger (Huayra theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra v3 theme.
+
+Package: plymouth-themes-huayra-limbo
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Description: Graphical Boot Animation and Logger (Huayra theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra Limbo theme.
+
+Package: plymouth-themes-huayra-liso
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Description: Graphical Boot Animation and Logger (Huayra theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra Liso theme.
+
