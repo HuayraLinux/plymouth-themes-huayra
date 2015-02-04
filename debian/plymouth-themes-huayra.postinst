@@ -10,7 +10,7 @@ case "$1" in
 
        if [ -f /etc/default/grub ]; then
 
-	 db_get plymouth-themes-huayra/resolution
+	 db_get shared/plymouth-resolution
          resolution="$RET"
 
          sed -i -e '/GRUB_DISTRIBUTOR=/ s/=.*/=Huayra/' \
@@ -25,7 +25,7 @@ case "$1" in
        then
            # actualizame al grub.
 
-           db_get plymouth-themes-huayra/theme
+           db_get shared/plymouth-theme
            theme="$RET";
            plymouth-set-default-theme $theme;
 
