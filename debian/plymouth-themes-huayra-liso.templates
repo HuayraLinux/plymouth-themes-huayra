@@ -1,9 +1,8 @@
-Template: shared/plymouth/theme
-Type: select
-Choices: limbo, huayra_liso, huayra_v3, huayra_v2, huayra
-Default: huayra_v3
-Description: Tema para plymouth:
- Seleccione el tema que desea habilitar en plymouth
+Template: shared/plymouth/active-theme
+Type: boolean
+Default: false
+Description: Activar tema para plymouth:
+ Seleccione si desea que el tema de plymouth se active
 
 Template: shared/plymouth/resolution
 Type: select

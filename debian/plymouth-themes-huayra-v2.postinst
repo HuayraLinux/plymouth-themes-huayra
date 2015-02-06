@@ -25,9 +25,12 @@ case "$1" in
        then
            # actualizame al grub.
 
-           db_get shared/plymouth/theme
-           theme="$RET";
-           plymouth-set-default-theme $theme;
+           db_get shared/plymouth/active-theme
+           active_theme="$RET";
+
+           if [ "$active_theme" = "true" ]; then
+               plymouth-set-default-theme huayra_v2;
+           fi
 
        fi
 
