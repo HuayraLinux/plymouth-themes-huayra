@@ -2,7 +2,7 @@ Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
 Maintainer: Fernando Toledo <ragnarok@docksud.com.ar>
-Build-Depends: debhelper (>= 9.20120909), config-package-dev (>= 5.0)
+Build-Depends: debhelper (>= 9.20120909)
 Standards-Version: 3.9.3
 Homepage: http://huayra.conectarigualdad.gob.ar
 
@@ -20,8 +20,6 @@ Depends:
  plymouth-themes-huayra-v3,
  plymouth-themes-huayra-limbo,
  plymouth-themes-huayra-liso
-Provides: ${diverted-files}
-Conflicts: ${diverted-files}
 Description: Graphical Boot Animation and Logger
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
@@ -33,7 +31,6 @@ Package: plymouth-themes-huayra-v1
 Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
@@ -49,12 +46,11 @@ Package: plymouth-themes-huayra-v2
 Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
-Description: Graphical Boot Animation and Logger (Huayra theme)
+Description: Graphical Boot Animation and Logger (Huayra v2 theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
  viewing after boot.
@@ -65,12 +61,11 @@ Package: plymouth-themes-huayra-v3
 Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
-Description: Graphical Boot Animation and Logger (Huayra theme)
+Description: Graphical Boot Animation and Logger (Huayra v3 theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
  viewing after boot.
@@ -81,12 +76,11 @@ Package: plymouth-themes-huayra-limbo
 Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
-Description: Graphical Boot Animation and Logger (Huayra theme)
+Description: Graphical Boot Animation and Logger (Huayra Limbo theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
  viewing after boot.
@@ -97,12 +91,11 @@ Package: plymouth-themes-huayra-liso
 Architecture: all
 Depends:
  ${misc:Depends},
- ${shlibs:Depends},
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
-Description: Graphical Boot Animation and Logger (Huayra theme)
+Description: Graphical Boot Animation and Logger (Huayra Liso theme)
  Plymouth provides an attractive boot animation in place of the text messages
  that normally get shown. Text messages are instead redirected to a logfile for
  viewing after boot.

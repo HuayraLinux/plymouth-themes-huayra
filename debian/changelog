@@ -1,4 +1,18 @@
-plymouth-themes-huayra (2.9) UNRELEASED; urgency=medium
+plymouth-themes-huayra (3.0.1) unstable; urgency=medium
+
+  * Volvemos al init-functions-orig a init-functions para
+    ser pisado por lsb-base.
+
+ -- Mauro <mauro@sdf.org>  Mon, 09 Feb 2015 16:13:23 -0300
+
+plymouth-themes-huayra (3.0) unstable; urgency=medium
+
+  * Agrego preinst para asi remover el symlink de
+    `init-functions`
+
+ -- Mauro <mauro@sdf.org>  Fri, 06 Feb 2015 15:51:09 -0300
+
+plymouth-themes-huayra (2.9) unstable; urgency=medium
 
   * Se agregaron temas nuevos.
   * Se separo en diferentes temas individuales.
