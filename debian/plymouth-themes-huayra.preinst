@@ -16,10 +16,13 @@ upgrade)
     # quitamos al divert y removemos al symlink que `lsb-base` deberia encargarse
     # de volver a generar.
     dpkg-divert --remove /lib/lsb/init-functions
-    rm -f /lib/lsb/init-functions
+    # rm -f /lib/lsb/init-functions
     if [ -f /lib/lsb/init-functions.huayra-orig ];
     then
-        mv /lib/lsb/init-functions.huayra-orig /lib/lsb/init-functions
+        if [ ! -f /lib/lsb/init-functions ];
+        then
+            mv /lib/lsb/init-functions.huayra-orig /lib/lsb/init-functions
+        fi
     fi
     ;;
 
