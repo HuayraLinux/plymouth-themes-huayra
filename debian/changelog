@@ -1,3 +1,10 @@
+plymouth-themes-huayra (3.0.3) UNRELEASED; urgency=medium
+
+  * Quito GRUB_DISTRIBUTOR de los postinst porque los
+    corrige `base-files` nuestro.
+
+ -- Mauro <mauro@sdf.org>  Thu, 12 Feb 2015 18:19:19 -0300
+
 plymouth-themes-huayra (3.0.2) unstable; urgency=medium
 
   * Mas chequeos para el preinst
