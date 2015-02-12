@@ -13,8 +13,7 @@ case "$1" in
 	 db_get shared/plymouth/resolution
          resolution="$RET"
 
-         sed -i -e '/GRUB_DISTRIBUTOR=/ s/=.*/=Huayra/' \
-                -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
+         sed -i -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
                 -e '/GRUB_GFXMODE=/ s/=.*/=$resolution/' \
                 -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash vga=788"/' \
                 /etc/default/grub
