@@ -30,8 +30,8 @@ case "$1" in
         fi
 
          sed -i -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
-                -e '/GRUB_GFXMODE=/ s/=.*/=$resolution/' \
-                -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash vga=$vesa_resolution"/' \
+                -e '/GRUB_GFXMODE=/ s/=.*/=${resolution}/' \
+                -e '/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/="quiet splash vga=${vesa_resolution}"/' \
                 /etc/default/grub
        fi
 
