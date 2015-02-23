@@ -20,10 +20,10 @@ case "$1" in
 
             case "$resolu" in
                 "1366x768")
-                    $vesa_resolution=871
+                    vesa_resolution=871
                 ;;
                 "1024x600")
-                    $vesa_resolution=881
+                    vesa_resolution=881
                 ;;
             esac
 
