@@ -1,7 +1,7 @@
 Template: shared/plymouth/theme
 Type: select
 Choices: limbo, huayra_liso, huayra_v3, huayra_v2, huayra
-Default: huayra_v3
+Default: huayra_liso
 Description: Tema para plymouth:
  Seleccione el tema que desea habilitar en plymouth
 

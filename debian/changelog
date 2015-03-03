@@ -1,3 +1,15 @@
+plymouth-themes-huayra (3.0.7) unstable; urgency=medium
+
+  * Default theme huayra_liso para plymouth-huayra-themes.
+
+ -- Mauro <mauro@sdf.org>  Tue, 03 Mar 2015 14:26:58 -0300
+
+plymouth-themes-huayra (3.0.6) unstable; urgency=medium
+
+  * Renombro archivos en el paquete plymouth-themes-huayra-limbo.
+
+ -- Mauro <mauro@sdf.org>  Fri, 27 Feb 2015 16:05:32 -0300
+
 plymouth-themes-huayra (3.0.5) unstable; urgency=medium
 
   [Ignacio Benedetti]
