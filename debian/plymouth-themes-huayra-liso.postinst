@@ -14,20 +14,14 @@ case "$1" in
          resolution="$RET"
 
         vesa_resolution=788 # 800x600
-
-        if [ -n "$(pidof X)" ]; then
-            resolu=$(xrandr -q | awk -F'current' -F',' 'NR==1 {gsub("( |current)","");print $2}')
-
-            case "$resolu" in
-                "1366x768")
-                    vesa_resolution=871
-                ;;
-                "1024x600")
-                    vesa_resolution=881
-                ;;
-            esac
-
-        fi
+         case "$resolution" in
+             "1366x768x32")
+                 vesa_resolution=871
+             ;;
+             "1024x600x32")
+                 vesa_resolution=881
+             ;;
+         esac
 
          sed -i -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
                 -e "/GRUB_GFXMODE=/ s/=.*/=$resolution/" \

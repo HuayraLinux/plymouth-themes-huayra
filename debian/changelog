@@ -1,3 +1,16 @@
+plymouth-themes-huayra (3.0.9) unstable; urgency=medium
+
+  * Arregla actualizacion desde pampero.
+
+ -- Matias De lellis <mati86dl@gmail.com>  Wed, 04 Mar 2015 15:03:46 -0300
+
+plymouth-themes-huayra (3.0.8) unstable; urgency=medium
+
+  * Restaura reglas DIVERT/UNDIVERT para evitar conflico en
+    actualizaciones
+
+ -- Matias De lellis <mati86dl@gmail.com>  Wed, 04 Mar 2015 13:04:35 -0300
+
 plymouth-themes-huayra (3.0.7) unstable; urgency=medium
 
   * Default theme huayra_liso para plymouth-huayra-themes.
