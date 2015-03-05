@@ -1,5 +1,11 @@
 plymouth-themes-huayra (3.0.9) unstable; urgency=medium
 
+  * Define plymouth-themes-huayra-liso como tema por defecto.
+
+ -- Mauro <mauro@sdf.org>  Thu, 05 Mar 2015 12:58:17 -0300
+
+plymouth-themes-huayra (3.0.9) unstable; urgency=medium
+
   * Arregla actualizacion desde pampero.
 
  -- Matias De lellis <mati86dl@gmail.com>  Wed, 04 Mar 2015 15:03:46 -0300

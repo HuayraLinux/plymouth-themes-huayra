@@ -1,6 +1,6 @@
 Template: shared/plymouth/active-theme
 Type: boolean
-Default: false
+Default: true
 Description: Activar tema para plymouth:
  Seleccione si desea que el tema de plymouth se active
 
