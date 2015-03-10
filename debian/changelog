@@ -1,3 +1,9 @@
+plymouth-themes-huayra (3.1.1) unstable; urgency=medium
+
+  * Define 800x600x32 como resolucion por defecto.
+
+ -- Mauro <mauro@sdf.org>  Tue, 10 Mar 2015 14:28:04 -0300
+
 plymouth-themes-huayra (3.1.0) unstable; urgency=medium
 
   * Define plymouth-themes-huayra-liso como tema por defecto.
