@@ -1,3 +1,9 @@
+plymouth-themes-huayra (3.1.2) torbellino; urgency=medium
+
+  * Se agrega primera versión de Huayra Ocho
+
+ -- Iván Hoffmann <digital.h@gmail.com.ar>  Mon, 04 Apr 2016 15:02:24 -0300
+
 plymouth-themes-huayra (3.1.1) unstable; urgency=medium
 
   * Define 800x600x32 como resolucion por defecto.

@@ -2,7 +2,7 @@ Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
 Maintainer: Fernando Toledo <ragnarok@docksud.com.ar>
-Build-Depends: debhelper (>= 9.20120909), config-package-dev (>= 5.1.1~)
+Build-Depends: debhelper (>= 9.20120909), config-package-dev (>= 5.1.1)
 Standards-Version: 3.9.3
 Homepage: http://huayra.conectarigualdad.gob.ar
 
@@ -104,4 +104,21 @@ Description: Graphical Boot Animation and Logger (Huayra Liso theme)
  viewing after boot.
  .
  This package contains the Huayra Liso theme.
+
+Package: plymouth-themes-huayra-ocho
+Architecture: all
+Depends:
+ ${misc:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Replaces: plymouth-themes-huayra
+Breaks: plymouth-themes-huayra
+Description: Graphical Boot Animation and Logger (Huayra Ocho theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra Ocho theme.
 
