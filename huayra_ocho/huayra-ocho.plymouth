@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=HuayraOcho
-Description=Simula boot de sistemas arcade 8 bits
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/huayra-ocho/
-ScriptFile=/usr/share/plymouth/themes/huayra-ocho/huayra-ocho.script

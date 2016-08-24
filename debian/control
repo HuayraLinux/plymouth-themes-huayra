@@ -112,7 +112,8 @@ Depends:
  plymouth (>= 0.9.0-8),
  plymouth-themes,
  fontconfig-config,
- fonts-dejavu-core | ttf-dejavu-core
+ fonts-dejavu-core | ttf-dejavu-core,
+ python-pygame
 Replaces: plymouth-themes-huayra
 Breaks: plymouth-themes-huayra
 Description: Graphical Boot Animation and Logger (Huayra Ocho theme)
