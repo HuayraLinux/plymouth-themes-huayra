@@ -1,0 +1,498 @@
+/* 
+::::::::::::   CARGAR IMAGENES  ::::::::::::
+
+*/
+logo_huayra_img = Image("logo_huayra.png");
+mame_grid_img = Image("mame_grid.png");
+scanlines_img = Image("scanlines.png");
+mame_char_img = Image("charmap.png");
+iniciando_img = Image("iniciando.png");
+
+/* En el caso de no usarse en una netbook, Huayra debe reconocer y escalar a la resolucion correcta  */
+
+ancho_pantalla = Window.GetWidth();
+altura_pantalla = Window.GetHeight();
+Xmedio = ancho_pantalla / 2;
+Ymedio = altura_pantalla / 2;
+
+
+/* Sprites */
+
+iniciando_sprite = Sprite(iniciando_img);
+iniciando_sprite.SetOpacity(0);
+
+grid_sprite = Sprite(mame_grid_img);
+char_sprite = Sprite(mame_char_img);
+
+logo_sprite = Sprite(logo_huayra_img);
+logo_sprite.SetOpacity(0);
+logo_sprite.SetX((ancho_pantalla - logo_sprite.GetImage().GetWidth())/2);
+logo_sprite.SetY(altura_pantalla / 3);
+
+/*Inicializa lineas de texto para scroll */
+lineas_scroll = 10;
+ancho_linea = 200;
+
+for (i=0; i < lineas_scroll; i++){
+	lineas[i] = Image.Text("", 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12", "center");
+	linea_sprite[i] = Sprite();
+	linea_sprite[i].SetPosition(ancho_pantalla * 0.2, (altura_pantalla*0.6) + (i*22), 10000);
+}
+
+
+
+# Carga imagenes para animaciones:
+# animacion cursor titilante
+for (i = 0; i < 2; i++)
+    cursor_img[i] = Image("cursor_" + i + ".png");
+
+
+# animacion letras huayra
+for (i = 1; i < 7; i++)
+    huayra_img[i-1] = Image("huayra-0" + i + ".png");
+
+# animacion vaca
+for (v = 0; v < 3; v++)
+	vaca_explo_img[v] = Image("explo-" + v + ".png");
+
+# animacion vaca
+for (v = 0; v < 6; v++)
+	vaca_normal_img[v] = Image("vaca-" + v + ".png");
+
+# animacion vaca rie
+for (v = 0; v < 2; v++)
+	vaca_rie_img[v] = Image("vaca-rie-" + v + ".png");
+
+vaca_sprite = Sprite();
+vaca_sprite.SetOpacity(0);
+vaca_sprite.SetX(Xmedio - vaca_normal_img[0].GetWidth()/2);
+vaca_sprite.SetY(altura_pantalla - vaca_normal_img[0].GetHeight());
+
+# animacion fila de invaders
+for (m = 0; m < 3; m++)
+	invaders_top_img[m] = Image("alien-top-" + m + ".png");
+
+# animacion fila de invaders
+for (m = 0; m < 3; m++)
+	invaders_mid_img[m] = Image("alien-mid-" + m + ".png");
+
+# animacion fila de invaders
+for (m = 0; m < 3; m++)
+	invaders_low_img[m] = Image("alien-low-" + m + ".png");
+
+# animacion fila de explosion
+for (m = 0; m < 6; m++)
+	bum_mid_img[m] = Image("bum-mid-" + m + ".png");
+
+# animacion fila de explosion
+for (m = 0; m < 6; m++)
+	bum_low_img[m] = Image("bum-low-" + m + ".png");
+
+# animacion fila de explosion
+for (m = 0; m < 6; m++)
+	bum_top_img[m] = Image("bum-top-" + m + ".png");
+
+/* Crea una matriz de sprites 
+for (inv= 0; inv < 5; inv++)
+	invaders_sprite[inv] = Sprite(invaders_img[0]);
+	invaders_sprite[inv].SetOpacity(0); */
+
+
+/*# animacion explosion invaders
+for (m = 0; m < 2; m++)
+	bum_img[m] = Image("explosion-" + m + ".png");*/
+
+
+
+/* Poner fondo con scanlines */
+scanlines_escalado = scanlines_img.Scale(ancho_pantalla, altura_pantalla);
+scanlines = Sprite(scanlines_escalado);
+scanlines.SetX(Xmedio - scanlines_escalado.GetWidth() / 2);
+scanlines.SetY(Ymedio - scanlines_escalado.GetHeight() / 2);
+scanlines.SetZ(-1000);  
+
+/* Prepara imagenes de grilla y charmap MAME-style */
+grid_escalado = mame_grid_img.Scale(ancho_pantalla, altura_pantalla);
+grid_sprite.SetImage(grid_escalado);
+grid_sprite.SetX(Xmedio - scanlines_escalado.GetWidth() / 2);
+grid_sprite.SetY(Ymedio - scanlines_escalado.GetHeight() / 2);
+grid_sprite.SetZ(100);
+grid_sprite.SetOpacity(0);
+
+char_escalado = mame_char_img.Scale(ancho_pantalla, altura_pantalla);
+char_sprite.SetImage(char_escalado);
+char_sprite.SetX(Xmedio - scanlines_escalado.GetWidth() / 2);
+char_sprite.SetY(Ymedio - scanlines_escalado.GetHeight() / 2);
+char_sprite.SetZ(50);
+char_sprite.SetOpacity(0);
+
+iniciando_sprite.SetX((ancho_pantalla - iniciando_img.GetWidth())/2);
+iniciando_sprite.SetY(altura_pantalla / 2);
+
+cursor_sprite = Sprite();
+huayra_sprite = Sprite();
+mensaje_sprite = Sprite();
+mensaje_sprite.SetPosition(Xmedio, Ymedio, 10000);
+
+huayra_sprite.SetX(0);
+huayra_sprite.SetY(50);
+huayra_sprite.SetZ(30);
+
+cursor_sprite.SetX(16); /* Ubica el cursor un caracter a la derecha */
+cursor_sprite.SetY(0);
+cursor_sprite.SetZ(20);
+
+cursor_sprite.SetImage(cursor_img[0]);
+huayra_sprite.SetImage(huayra_img[0]);
+
+/* Prepara sprites las filas de aliens */
+fila_top_sprite = Sprite();
+fila_mid_sprite = Sprite();
+fila_bot_sprite = Sprite();
+
+# Add your code here
+
+
+fsck_running = 0;
+fsck_dev_array;
+fsck_dev_counter = 0;
+fsck_fade_in_counter = 0;
+fsck_done_fading = 0;
+
+stars_array;
+stars_n = 0;
+
+//full_msg = "";
+msgs_line;
+original;
+msg1;
+
+fila_top_sprite.SetX((ancho_pantalla - invaders_top_img[0].GetWidth())/2);	
+fila_mid_sprite.SetX((ancho_pantalla - invaders_mid_img[0].GetWidth())/2);
+fila_bot_sprite.SetX((ancho_pantalla - invaders_low_img[0].GetWidth())/2);
+fila_top_sprite.SetOpacity(0);
+fila_mid_sprite.SetOpacity(0);
+fila_bot_sprite.SetOpacity(0);
+
+
+/* Contadores para animaciones */
+cursor = 0;
+huayra = 0;
+loop = 0;
+loop_final = 0;
+pausa_cursor = 0;
+pausa_huayra = 0;
+pausa_vaca = 0;
+n = 0;
+m = 1;
+o = 2;
+stop_huayra = 0;
+show_aliens = 0;
+pausa_alien = 0;
+pausa_bum = 0;
+pausa_scroll = 0;
+pausa_iniciando = 0;
+pausa_normal = 0;
+pausa_rie = 0;
+setup = 1;
+ease_in = 0;
+alpha = 0;
+alpha_logo = 0;
+
+step = 40;
+paso = 0;
+kill_aliens = 0;
+bum = 0;
+show_vaca = 0;
+show_iniciando = 0;
+show_logo = 0;
+SHOW = 0;
+estado = "normal";
+vaca_rie = 0;
+vaca = 0;
+
+// From ubuntu-logo
+fun LargoCadena(texto) {
+  index = 0;
+  str = String(texto);
+  while(str.CharAt(index)) index++;
+  return index;
+}
+ 
+fun scroll_message_callback(text) {
+ 
+   // Trunca si el mensaje es muy largo
+   if (LargoCadena(text) > ancho_linea) {
+     text = text.SubString(0, ancho_linea - 3);
+     text += "...";
+   }
+ 
+   // Desplaza una linea arriba
+   for (i = 0; i < lineas_scroll - 1; i++) {
+     lineas[i] = lineas[i+1];
+   }
+ 
+   // Crea imagen para el ultimo mensaje
+   lineas[i] = Image.Text(text, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12", "center");
+ 
+   // Re-posiciona las imagenes con texto.
+   for (i = 0; i < lineas_scroll; i++) {
+     linea_sprite[i].SetImage(lineas[i]);
+   }
+}
+
+/* Animaciones */
+
+/* 
+
+El cursor se refresca 2 veces por segundo alternando entre dos frames 
+
+Una vez que hace 5 parpadeos empieza a escribir, debe desplazarse a la derecha
+mientras aparecen las letras.
+
+*/
+fun refresh_callback()
+
+  {
+	if (Plymouth.GetMode () == "boot")
+	{
+		pausa_cursor++;
+		if (pausa_cursor > 6) {
+			cursor_sprite.SetImage(cursor_img[cursor]); /* Oscila entre cursor[0] y cursor[1] */
+			cursor++ ;
+			if (cursor > 1) {
+				cursor = 0;
+			}
+			pausa_cursor = 0;
+
+		}
+
+		pausa_huayra++;
+		if (pausa_huayra > 10) {
+			if (huayra < 6 && stop_huayra == 0) {
+				huayra_sprite.SetImage(huayra_img[huayra]); 
+				cursor_sprite.SetX(cursor_sprite.GetX() + 38) ; /* Pone el cursor a la derecha 56 pixeles */
+				cursor_sprite.SetY(huayra_sprite.GetY()); /* Alinea el cursor al texto de Huayra */
+				huayra++; /* Anima el texto como si se escribiera */
+				}
+			else {
+				stop_huayra = 1; /* Reinicia si ya son mas de 6 frames */
+				}
+			pausa_huayra = 0; /* resetea el contador para los proximos N ciclos */
+		}
+
+		if (show_aliens == 1)
+		{ 
+			if (setup == 1){
+				/* Se ejecuta solo una vez */
+				grid_sprite.SetOpacity(0); /* Apaga la grilla */
+				fila_top_sprite.SetY((altura_pantalla - invaders_top_img[0].GetWidth())/4);
+				fila_top_sprite.SetZ(50);
+				fila_mid_sprite.SetY(fila_top_sprite.GetY() + 1.5 * invaders_top_img[0].GetHeight()); /* Ubica las filas separadas por un 50% de la altura de la fila de aliens */
+				fila_mid_sprite.SetZ(50);
+				fila_bot_sprite.SetY(fila_mid_sprite.GetY() + 1.5 * invaders_mid_img[0].GetHeight()); 
+				fila_bot_sprite.SetZ(50);
+				fila_top_sprite.SetImage(invaders_top_img[n]);
+				fila_mid_sprite.SetImage(invaders_mid_img[m]);
+				fila_bot_sprite.SetImage(invaders_low_img[o]);
+				huayra_sprite.SetOpacity(0);
+				cursor_sprite.SetOpacity(0);
+				ease_in++;
+				if (ease_in > 1){
+					alpha+=5;
+					if (alpha <= 100){
+						fila_top_sprite.SetOpacity(alpha/100);
+						fila_mid_sprite.SetOpacity(alpha/100);
+						fila_bot_sprite.SetOpacity(alpha/100);
+					}
+					else {
+						setup = 0;
+					}
+					ease_in = 0;
+				}
+			}
+
+			pausa_alien++;
+
+			if (pausa_alien > 7){
+				fila_top_sprite.SetImage(invaders_top_img[n]);
+				n++;
+				if (n > 3){n = 0;}
+				fila_mid_sprite.SetImage(invaders_mid_img[m]);
+				m++;
+				if (m > 3){m = 0;}
+				fila_bot_sprite.SetImage(invaders_low_img[o]);
+				o++;
+				if (o > 3){o = 0;}
+				pausa_alien = 0;
+			}
+			pausa_scroll++;
+			if (pausa_scroll > 14){
+				fila_top_sprite.SetX(fila_top_sprite.GetX() + step);
+				fila_mid_sprite.SetX(fila_mid_sprite.GetX() + step);
+				fila_bot_sprite.SetX(fila_bot_sprite.GetX() + step);
+				pausa_scroll = 0;
+				paso++;
+				if(paso==5){
+					step = step * (-1); /* Alterna izquierda y derecha cada tantos "paso" */
+					paso = 0;
+				}
+
+			}
+		}
+
+		if (kill_aliens == 1)
+		{ 	
+			pausa_bum++;
+			if (pausa_bum > 2){
+				fila_top_sprite.SetImage(bum_top_img[bum]);
+				fila_mid_sprite.SetImage(bum_mid_img[bum]);
+				fila_bot_sprite.SetImage(bum_low_img[bum]);
+				bum++;
+				if (bum > 6){
+					kill_aliens = 0;
+					fila_top_sprite.SetOpacity(0);
+					fila_mid_sprite.SetOpacity(0);
+					fila_bot_sprite.SetOpacity(0);
+					show_logo = 1;
+					}
+				pausa_bum = 0;
+			}
+		}
+
+
+		if (show_logo == 1)
+		{ 	
+			ease_in++;
+			if (ease_in > 1){
+				alpha_logo+=5;
+				if (alpha_logo <= 100){
+					logo_sprite.SetOpacity(alpha_logo/100);
+				}
+				ease_in = 0;
+			}
+		}
+
+		if (show_iniciando == 1)
+		{
+			pausa_iniciando++;
+			if (pausa_iniciando > 30){
+				if (SHOW == 0){
+					SHOW = 1;}
+				else { SHOW = 0;}
+				iniciando_sprite.SetOpacity(SHOW);
+				pausa_iniciando = 0;
+			}		
+		}
+
+		if (show_vaca == 1 && estado == "normal")
+		{
+			pausa_normal++;
+			if (pausa_normal > 20){
+				vaca++;
+				if (vaca > 3){ vaca = 0; }
+				vaca_sprite.SetImage(vaca_normal_img[vaca]);
+				pausa_normal = 0;
+			}
+		}
+		if (show_vaca == 1 && estado == "rie"){
+			pausa_rie++;
+			if (pausa_rie > 10){
+				vaca_rie++;
+				if (vaca_rie > 1){ vaca_rie = 0; }
+				vaca_sprite.SetImage(vaca_rie_img[vaca_rie]);
+				pausa_rie = 0;
+			}
+		}
+		if (show_vaca == 1 && estado == "blink"){
+			vaca_sprite.SetImage(vaca_normal_img[4]);
+
+		}
+		if (show_vaca == 1 && estado == "worry"){
+			vaca_sprite.SetImage(vaca_normal_img[5]);
+		}
+
+
+		loop++;
+		if (loop > 120 && loop < 130) {
+			/*char_sprite.SetOpacity(1);*/ /* Hace aparecer juego de caracteres de colores */
+			grid_sprite.SetOpacity(0); /* Apaga la grilla de coordenadas */
+		}
+		else if(loop >= 130 && loop < 140) {
+			/* char_sprite.SetOpacity(0); *//* Apaga juego de caracteres */
+			grid_sprite.SetOpacity(1); /* Enciende la grilla */
+		}
+
+		else if(loop >=140 && loop < 150){
+			show_vaca = 1;
+			vaca_sprite.SetOpacity(1);
+			estado = "normal";
+		}
+
+		else if(loop >150 && loop < 450){
+			estado = "worry";
+			show_aliens = 1;
+		}
+
+		else if(loop >450 && loop < 510){
+			estado = "rie";	
+			show_aliens = 0;
+			kill_aliens = 1;
+		}
+	
+		else if(loop >560 && loop < 570){
+			show_iniciando = 1;
+			estado = "blink";
+		}
+
+		else if(loop >570){
+			show_iniciando = 1;
+			estado = "normal";
+		}
+
+	} else /* Si el estado no es boot se asume que está cerrando */
+	{
+		loop_final++;
+		if (loop_final < 300){
+		char_sprite.SetOpacity(1); /* Hace aparecer juego de caracteres de colores */
+		}
+	}
+  } /* fin de rutina */
+
+
+Plymouth.SetRefreshFunction (refresh_callback);
+
+
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+		char_sprite.SetOpacity(1); /* Hace aparecer juego de caracteres de colores */
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+
+/*This function will display the most current message */
+/*
+fun UpdateMensaje(msg) {
+
+	mensaje_imagen = Image.Text(msg, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 36", "center");
+	mensaje_sprite.SetImage(mensaje_imagen);
+	mensaje_sprite.SetPosition( Xmedio, Ymedio, 10000 );
+}
+*/
+
+/* fun messageHandler(msgb)
+{
+
+	msg1_y = logo_sprite.GetY() + logo_huayra.GetHeight() + 20;
+	msg1 = Sprite(Image.Text(msgb, 0.26, 026, 0.26, 0.89, "Rosario Bold 14"));
+	msg1.SetPosition( medio - (msg1.GetImage().GetWidth() /2 ) , msg1_y, 10000 );
+
+
+}*/
+
+Plymouth.SetUpdateStatusFunction(scroll_message_callback);
+/* Plymouth.SetMessageFunction(messageHandler);*/
