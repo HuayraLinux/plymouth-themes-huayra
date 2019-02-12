@@ -26,8 +26,8 @@ char_sprite = Sprite(mame_char_img);
 
 logo_sprite = Sprite(logo_huayra_img);
 logo_sprite.SetOpacity(0);
-logo_sprite.SetX((ancho_pantalla - logo_sprite.GetImage().GetWidth())/2);
-logo_sprite.SetY(altura_pantalla / 3);
+logo_sprite.SetX((Window.GetWidth() - logo_sprite.GetImage().GetWidth())/2);
+logo_sprite.SetY(Window.GetHeight() / 3);
 
 /*Inicializa lineas de texto para scroll */
 lineas_scroll = 10;
@@ -36,7 +36,7 @@ ancho_linea = 200;
 for (i=0; i < lineas_scroll; i++){
 	lineas[i] = Image.Text("", 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12", "center");
 	linea_sprite[i] = Sprite();
-	linea_sprite[i].SetPosition(ancho_pantalla * 0.2, (altura_pantalla*0.6) + (i*22), 10000);
+	linea_sprite[i].SetPosition(Window.GetWidth() * 0.2, (altura_pantalla*0.6) + (i*22), 10000);
 }
 
 
@@ -105,7 +105,7 @@ for (m = 0; m < 2; m++)
 
 
 /* Poner fondo con scanlines */
-scanlines_escalado = scanlines_img.Scale(ancho_pantalla, altura_pantalla);
+scanlines_escalado = scanlines_img.Scale(Window.GetWidth(), Window.GetHeight());
 scanlines = Sprite(scanlines_escalado);
 scanlines.SetX(Xmedio - scanlines_escalado.GetWidth() / 2);
 scanlines.SetY(Ymedio - scanlines_escalado.GetHeight() / 2);
