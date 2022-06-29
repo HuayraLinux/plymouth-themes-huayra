@@ -1,3 +1,9 @@
+plymouth-themes-huayra (3.1.6) torbellino; urgency=medium
+
+  * Agrega un tema semi estatico para dispositivos rapidos donde no se aprecia las animaciones.
+
+ -- Matias De lellis <mati86dl@gmail.com>  Mon, 13 Sep 2021 12:42:44 -0300
+
 plymouth-themes-huayra (3.1.5) unstable; urgency=medium
 
   * Corregido error en nombres de archivos que impedian instalacion correcta

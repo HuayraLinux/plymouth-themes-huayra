@@ -123,3 +123,21 @@ Description: Graphical Boot Animation and Logger (Huayra Ocho theme)
  .
  This package contains the Huayra Ocho theme.
 
+Package: plymouth-themes-huayra-flying
+Architecture: all
+Depends:
+ ${misc:Depends},
+ plymouth (>= 0.9.0-8),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core,
+ python-pygame
+Replaces: plymouth-themes-huayra
+Breaks: plymouth-themes-huayra
+Description: Graphical Boot Animation and Logger (Huayra Flying theme)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra Flying theme.
+

@@ -1,0 +1,17 @@
+[Plymouth Theme]
+Name=Huayra Flying
+Name[es]=Huayra Volando
+Description=Simplle theme for fast devices wher an animation is not appreciated
+Description[es]=Tema simple para maquinas rapidas donde no se aprecia una animacion
+ModuleName=two-step
+
+[two-step]
+ImageDir=/usr/share/plymouth/themes/huayra_flying
+HorizontalAlignment=.5
+VerticalAlignment=.75
+Transition=none
+TransitionDuration=0.0
+BackgroundStartColor=0x202020
+BackgroundEndColor=0x202020
+WatermarkHorizontalAlignment=.5
+WatermarkVerticalAlignment=.35
