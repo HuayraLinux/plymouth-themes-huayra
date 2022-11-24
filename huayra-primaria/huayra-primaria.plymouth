@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=HuayraPrimaria2022
+Description=Muestra burbujas y vaca por el costado
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/huayra-primaria/
+ScriptFile=/usr/share/plymouth/themes/huayra-primaria/huayra-primaria.script

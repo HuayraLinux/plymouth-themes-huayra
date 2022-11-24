@@ -1,0 +1,261 @@
+/* 
+::::::::::::   CARGAR IMAGENES  ::::::::::::
+
+*/
+logos_img = Image("logos.png");
+larioja_img = Image("larioja.png");
+vaca_img = Image("vaca_primaria.png");
+globo_img = Image("globo.png");
+fondo_img = Image("fondo.png");
+
+/* En el caso de no usarse en una netbook, Huayra debe reconocer y escalar a la resolucion correcta  */
+
+ancho_pantalla = Window.GetWidth();
+altura_pantalla = Window.GetHeight();
+Xmedio = ancho_pantalla / 2;
+Ymedio = altura_pantalla / 2;
+
+
+/* Sprites */
+
+vaca_sprite = Sprite(vaca_img);
+vaca_sprite.SetX(-252);
+vaca_sprite.SetY(70);
+fondo_sprite = Sprite(fondo_img);
+larioja_sprite = Sprite(larioja_img);
+
+logos_sprite = Sprite(logos_img);
+logos_sprite.SetOpacity(0);
+logos_sprite.SetX((Window.GetWidth() - logos_sprite.GetImage().GetWidth())/2);
+logos_sprite.SetY(Window.GetHeight() / 3);
+
+larioja_sprite.SetX((Window.GetWidth() - larioja_sprite.GetImage().GetWidth())/2);
+larioja_sprite.SetY((Window.GetHeight() - larioja_sprite.GetImage().GetHeight())/ 2);
+
+globo_sprite = Sprite(globo_img);
+globo_sprite.SetX((Window.GetWidth() - globo_sprite.GetImage().GetWidth())/2);
+globo_sprite.SetY((Window.GetHeight() - globo_sprite.GetImage().GetHeight())/2);
+
+
+
+/* Poner fondo */
+fondo_escalado = fondo_img.Scale(Window.GetWidth(), Window.GetHeight());
+fondo = Sprite(fondo_escalado);
+fondo.SetX(Xmedio - fondo_escalado.GetWidth() / 2);
+fondo.SetY(Ymedio - fondo_escalado.GetHeight() / 2);
+fondo.SetZ(-1000);  
+
+
+
+# Add your code here
+
+
+fsck_running = 0;
+fsck_dev_array;
+fsck_dev_counter = 0;
+fsck_fade_in_counter = 0;
+fsck_done_fading = 0;
+
+stars_array;
+stars_n = 0;
+
+//full_msg = "";
+msgs_line;
+original;
+msg1;
+
+
+
+/* Contadores para animaciones */
+cursor = 0;
+huayra = 0;
+loop = 0;
+loop_final = 0;
+pausa_cursor = 0;
+pausa_huayra = 0;
+pausa_vaca = 0;
+n = 0;
+m = 1;
+o = 2;
+stop_huayra = 0;
+show_aliens = 0;
+pausa_alien = 0;
+pausa_bum = 0;
+pausa_scroll = 0;
+pausa_iniciando = 0;
+pausa_normal = 0;
+pausa_rie = 0;
+setup = 1;
+ease_in = 0;
+alpha = 0;
+alpha_logo = 0;
+
+step = 40;
+paso = 0;
+kill_aliens = 0;
+bum = 0;
+show_vaca = 0;
+show_iniciando = 0;
+show_logo = 1;
+SHOW = 0;
+estado = "normal";
+vaca_rie = 0;
+vaca = 0;
+
+// From ubuntu-logo
+/*fun LargoCadena(texto) {
+  index = 0;
+  str = String(texto);
+  while(str.CharAt(index)) index++;
+  return index;
+}*/
+
+/* 
+fun scroll_message_callback(text) {
+ 
+   // Trunca si el mensaje es muy largo
+   if (LargoCadena(text) > ancho_linea) {
+     text = text.SubString(0, ancho_linea - 3);
+     text += "...";
+   }
+ 
+   // Desplaza una linea arriba
+   for (i = 0; i < lineas_scroll - 1; i++) {
+     lineas[i] = lineas[i+1];
+   }
+ 
+   // Crea imagen para el ultimo mensaje
+   lineas[i] = Image.Text(text, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12", "center");
+ 
+   // Re-posiciona las imagenes con texto.
+   for (i = 0; i < lineas_scroll; i++) {
+     linea_sprite[i].SetImage(lineas[i]);
+   }
+}
+*/
+
+/* Animaciones */
+
+/* 
+
+El cursor se refresca 2 veces por segundo alternando entre dos frames 
+
+Una vez que hace 5 parpadeos empieza a escribir, debe desplazarse a la derecha
+mientras aparecen las letras.
+
+*/
+fun refresh_callback()
+
+  {
+	if (Plymouth.GetMode () == "boot")
+	{
+		if (show_logo == 1)
+		{	
+			ease_in++;
+			if (ease_in > 1){
+				alpha_logo+=5;
+				if (alpha_logo <= 100){
+					globo_sprite.SetOpacity(alpha_logo/100);
+				}
+				ease_in = 0;
+			}
+		}
+
+		if (show_iniciando == 1)
+		{
+			pausa_iniciando++;
+			if (pausa_iniciando > 30){
+				if (SHOW == 0){
+					SHOW = 1;}
+				else { SHOW = 0;}
+				iniciando_sprite.SetOpacity(SHOW);
+				pausa_iniciando = 0;
+			}		
+		}
+/*
+		if (show_vaca == 1 && estado == "normal")
+		{
+			pausa_normal++;
+			if (pausa_normal > 20){
+				vaca++;
+				if (vaca > 3){ vaca = 0; }
+				vaca_sprite.SetImage(vaca_normal_img[vaca]);
+				pausa_normal = 0;
+			}
+		}
+		if (show_vaca == 1 && estado == "rie"){
+			pausa_rie++;
+			if (pausa_rie > 10){
+				vaca_rie++;
+				if (vaca_rie > 1){ vaca_rie = 0; }
+				vaca_sprite.SetImage(vaca_rie_img[vaca_rie]);
+				pausa_rie = 0;
+			}
+		}
+		if (show_vaca == 1 && estado == "blink"){
+			vaca_sprite.SetImage(vaca_normal_img[4]);
+
+		}
+		if (show_vaca == 1 && estado == "worry"){
+			vaca_sprite.SetImage(vaca_normal_img[5]);
+		}
+*/
+
+		loop++;
+		
+
+		else if(loop >=140 && loop < 150){
+			show_vaca = 1;
+			vaca_sprite.SetOpacity(1);
+			
+			estado = "normal";
+		}
+
+		
+
+	} else /* Si el estado no es boot se asume que está cerrando */
+	{
+		loop_final++;
+		if (loop_final < 300){
+		larioja_sprite.SetOpacity(1); /* Hace aparecer logo de la Rioja al final */
+		}
+	}
+  } /* fin de rutina */
+
+
+Plymouth.SetRefreshFunction (refresh_callback);
+
+
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+		char_sprite.SetOpacity(1); /* Hace aparecer juego de caracteres de colores */
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+
+/*This function will display the most current message */
+/*
+fun UpdateMensaje(msg) {
+
+	mensaje_imagen = Image.Text(msg, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 36", "center");
+	mensaje_sprite.SetImage(mensaje_imagen);
+	mensaje_sprite.SetPosition( Xmedio, Ymedio, 10000 );
+}
+*/
+
+/* fun messageHandler(msgb)
+{
+
+	msg1_y = logo_sprite.GetY() + logo_huayra.GetHeight() + 20;
+	msg1 = Sprite(Image.Text(msgb, 0.26, 026, 0.26, 0.89, "Rosario Bold 14"));
+	msg1.SetPosition( medio - (msg1.GetImage().GetWidth() /2 ) , msg1_y, 10000 );
+
+
+}*/
+
+Plymouth.SetUpdateStatusFunction(scroll_message_callback);
+/* Plymouth.SetMessageFunction(messageHandler);*/
