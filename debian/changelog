@@ -1,3 +1,9 @@
+plymouth-themes-huayra (3.1.8) torbellino; urgency=medium
+
+  * Version inicial de plyamouth para Huayra 6
+
+ -- Matias De lellis <mati86dl@gmail.com>  Thu, 01 Dec 2022 11:03:20 -0300
+
 plymouth-themes-huayra (3.1.7) torbellino; urgency=medium
 
   * Remueve dependencia innecesaria

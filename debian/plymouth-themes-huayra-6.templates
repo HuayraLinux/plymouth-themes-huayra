@@ -1,0 +1,13 @@
+Template: shared/plymouth/active-theme
+Type: boolean
+Default: true
+Description: Activar tema para plymouth:
+ Seleccione si desea que el tema de plymouth se active
+
+Template: shared/plymouth/resolution
+Type: select
+Choices: 800x600x32, 1024x600x32, 1024x768x32, 1280x1024x32, 1366x768x32, 1440x900x32
+Default: 800x600x32
+Description: Resolución de entrada de plymouth:
+ Seleccione la resolución que debe tener plymouth al iniciar.
+ MarblePoint(1366x768), CedarTrail/TangoPoint(1024x600)
