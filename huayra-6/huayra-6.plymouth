@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Huayra6
+Description=Muestra burbujas y vaca por el costado
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/huayra-6/
+ScriptFile=/usr/share/plymouth/themes/huayra-6/huayra-6.script
