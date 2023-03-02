@@ -4,7 +4,7 @@
 */
 logos_img = Image("logos.png");
 fondo_img = Image("fondo.png");
-final_img = Image("cuadro_final.png");
+final_img = Image("anim_40.png");
 
 /* En el caso de no usarse en una netbook, Huayra debe reconocer y escalar a la resolucion correcta  */
 
@@ -23,15 +23,16 @@ fondo_sprite = Sprite(fondo_img);
 logos_sprite = Sprite(logos_img);
 logos_sprite.SetOpacity(0);
 logos_sprite.SetX((Window.GetWidth() - logos_sprite.GetImage().GetWidth())/2);
-logos_sprite.SetY(Window.GetHeight() / 3);
-panaderos_sprite = Sprite();
+logos_sprite.SetY(Window.GetHeight() / 4);
 
 # Sprite normal
 panaderos_sprite = Sprite();
-panaderos_sprite.SetX(Window.GetWidth());
-panaderos_sprite.SetY(Window.GetHeight() * 0.30 - panaderos_imagenes[1].GetHeight() / 2);
-panaderos_sprite.SetZ(11);
-panaderos_sprite.SetOpacity(1);
+panaderos_sprite.SetX(Xmedio - 270);
+//panaderos_sprite.SetX(0);
+panaderos_sprite.SetY(Ymedio -180);
+//panaderos_sprite.SetY(19);
+panaderos_sprite.SetZ(100);
+panaderos_sprite.SetOpacity(1.0);
 
 /* Poner fondo */
 fondo_escalado = fondo_img.Scale(Window.GetWidth(), Window.GetHeight());
@@ -72,19 +73,8 @@ ease_in = 0;
 alpha = 0;
 alpha_logo = 0;
 
-step = 40;
-paso = 0;
-kill_aliens = 0;
-bum = 0;
-show_vaca = 0;
-show_iniciando = 0;
 show_logo = 1;
 SHOW = 0;
-estado = "normal";
-vaca_rie = 0;
-vaca = 0;
-
-
 
 /* Animaciones */
 
@@ -93,32 +83,30 @@ fun refresh_callback()
   {
 	if (Plymouth.GetMode () == "boot")
 	{
-		if (cuadros > 39){
+		if (cuadros >= 39){
+            //cuadros = 0;
 			panaderos_sprite.SetImage(final_img);
 		}
 		panaderos_sprite.SetImage(panaderos_imagenes[cuadros]);
 		cuadros++;
+        /*panaderos_sprite.SetImage(final_img);*/
 		
-	if (show_logo == 1)
-		{ 	
-			ease_in++;
-			if (ease_in > 1){
-				alpha_logo+=5;
-				if (alpha_logo <= 100){
-					logos_sprite.SetOpacity(alpha_logo/100);
-				}
-				ease_in = 0;
-			}
-		}
-
+	    if (show_logo == 1)
+		    { 	
+			    ease_in++;
+			    if (ease_in > 1){
+				    alpha_logo+=5;
+				    if (alpha_logo <= 100){
+					    logos_sprite.SetOpacity(alpha_logo/100);
+				    }
+				    ease_in = 0;
+			    }
+		    }
+        
 
 
 	} else /* Si el estado no es boot se asume que está cerrando */
 	{
-/*		loop_final++;
-		if (loop_final < 300){
-		larioja_sprite.SetOpacity(1); /* Hace aparecer logo de la Rioja al final */
-		}*/
 	}
   } /* fin de rutina */
 
