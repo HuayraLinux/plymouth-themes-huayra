@@ -15,7 +15,7 @@ Ymedio = altura_pantalla / 2;
 
 # Carga frames de animacion
 for (i = 0; i < 40; i++)
-    panaderos_imagenes[i] = Image("anim_" + i + ".png");
+    panaderos_imagenes[i] = Image("anim_" + (i + 1) + ".png");
 
 /* Sprites */
 
@@ -59,6 +59,7 @@ msgs_line;
 original;
 msg1;
 
+panaderos_sprite.SetImage(panaderos_imagenes[0]);
 
 
 /* Contadores para animaciones */
@@ -66,21 +67,7 @@ cuadros = 0;
 huayra = 0;
 loop = 0;
 loop_final = 0;
-pausa_cursor = 0;
-pausa_huayra = 0;
-pausa_vaca = 0;
-n = 0;
-m = 1;
-o = 2;
-stop_huayra = 0;
-show_aliens = 0;
-pausa_alien = 0;
-pausa_bum = 0;
-pausa_scroll = 0;
-pausa_iniciando = 0;
-pausa_normal = 0;
-pausa_rie = 0;
-setup = 1;
+
 ease_in = 0;
 alpha = 0;
 alpha_logo = 0;
@@ -97,59 +84,20 @@ estado = "normal";
 vaca_rie = 0;
 vaca = 0;
 
-// From ubuntu-logo
-/*fun LargoCadena(texto) {
-  index = 0;
-  str = String(texto);
-  while(str.CharAt(index)) index++;
-  return index;
-}*/
 
-/* 
-fun scroll_message_callback(text) {
- 
-   // Trunca si el mensaje es muy largo
-   if (LargoCadena(text) > ancho_linea) {
-     text = text.SubString(0, ancho_linea - 3);
-     text += "...";
-   }
- 
-   // Desplaza una linea arriba
-   for (i = 0; i < lineas_scroll - 1; i++) {
-     lineas[i] = lineas[i+1];
-   }
- 
-   // Crea imagen para el ultimo mensaje
-   lineas[i] = Image.Text(text, 0.26, 0.26, 0.26, 0.89, "Rosario Bold 12", "center");
- 
-   // Re-posiciona las imagenes con texto.
-   for (i = 0; i < lineas_scroll; i++) {
-     linea_sprite[i].SetImage(lineas[i]);
-   }
-}
-*/
 
 /* Animaciones */
-
-/* 
-
-El cursor se refresca 2 veces por segundo alternando entre dos frames 
-
-Una vez que hace 5 parpadeos empieza a escribir, debe desplazarse a la derecha
-mientras aparecen las letras.
-
-*/
 
 fun refresh_callback()
 
   {
 	if (Plymouth.GetMode () == "boot")
 	{
-		cuadros++;
-		if (cuadros > 40){
+		if (cuadros > 39){
 			panaderos_sprite.SetImage(final_img);
 		}
 		panaderos_sprite.SetImage(panaderos_imagenes[cuadros]);
+		cuadros++;
 		
 	if (show_logo == 1)
 		{ 	
@@ -164,17 +112,6 @@ fun refresh_callback()
 		}
 
 
-/*		loop++;
-		
-
-		else if(loop >=140 && loop < 150){
-			show_vaca = 1;
-			vaca_sprite.SetOpacity(1);
-			
-			estado = "normal";
-		}
-*/
-		
 
 	} else /* Si el estado no es boot se asume que está cerrando */
 	{
