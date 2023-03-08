@@ -1,3 +1,15 @@
+plymouth-themes-huayra (3.1.10) unstable; urgency=medium
+
+  * Correcciones en la animacion del tema huayra-6
+
+ -- Matias De lellis <mati86dl@gmail.com>  Wed, 08 Mar 2023 11:41:26 -0300
+
+plymouth-themes-huayra (3.1.9) torbellino; urgency=medium
+
+  * Correcciones en la animacion del tema huayra-6
+
+ -- Matias De lellis <mati86dl@gmail.com>  Thu, 01 Dec 2022 21:41:21 -0300
+
 plymouth-themes-huayra (3.1.8) torbellino; urgency=medium
 
   * Version inicial de plyamouth para Huayra 6
