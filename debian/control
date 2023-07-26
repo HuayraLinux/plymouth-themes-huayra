@@ -2,29 +2,15 @@ Source: plymouth-themes-huayra
 Section: x11
 Priority: extra
 Maintainer: Fernando Toledo <ragnarok@docksud.com.ar>
-Build-Depends: debhelper (>= 9.20120909), config-package-dev (>= 5.1.1)
+Build-Depends: debhelper (>= 13),
 Standards-Version: 3.9.3
-Homepage: http://huayra.conectarigualdad.gob.ar
-
-Package: plymouth-themes-huayra
-Architecture: all
-Depends:
- ${misc:Depends},
- ${shlibs:Depends}
-Provides: ${diverted-files}
-Conflicts: ${diverted-files}
-Description: Graphical Boot Animation and Logger
- Plymouth provides an attractive boot animation in place of the text messages
- that normally get shown. Text messages are instead redirected to a logfile for
- viewing after boot.
- .
- This package contains all the Huayra themes.
+Homepage: https://huayra.educar.gob.ar
 
 Package: plymouth-themes-huayra-v1
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -41,7 +27,7 @@ Package: plymouth-themes-huayra-v2
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -58,7 +44,7 @@ Package: plymouth-themes-huayra-v3
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -75,7 +61,7 @@ Package: plymouth-themes-huayra-limbo
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -92,7 +78,7 @@ Package: plymouth-themes-huayra-liso
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -109,7 +95,7 @@ Package: plymouth-themes-huayra-ocho
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core,
@@ -127,7 +113,7 @@ Package: plymouth-themes-huayra-flying
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -144,7 +130,7 @@ Package: plymouth-themes-huayra-6
 Architecture: all
 Depends:
  ${misc:Depends},
- plymouth (>= 0.9.0-8),
+ plymouth (>= 0.9.5),
  plymouth-themes,
  fontconfig-config,
  fonts-dejavu-core | ttf-dejavu-core
@@ -156,3 +142,21 @@ Description: Graphical Boot Animation and Logger (Huayra 6)
  viewing after boot.
  .
  This package contains the Huayra Flying theme.
+
+Package: plymouth-themes-huayra-pba
+Architecture: all
+Depends:
+ ${misc:Depends},
+ plymouth (>= 0.9.5),
+ plymouth-themes,
+ fontconfig-config,
+ fonts-dejavu-core | ttf-dejavu-core
+Replaces: plymouth-themes-huayra
+Breaks: plymouth-themes-huayra
+Description: Graphical Boot Animation and Logger (Huayra PBA)
+ Plymouth provides an attractive boot animation in place of the text messages
+ that normally get shown. Text messages are instead redirected to a logfile for
+ viewing after boot.
+ .
+ This package contains the Huayra PBA theme.
+

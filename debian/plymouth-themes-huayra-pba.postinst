@@ -1,0 +1,75 @@
+#! /bin/sh
+
+set -e
+
+. /usr/share/debconf/confmodule
+
+case "$1" in
+
+    configure|"")
+
+       if [ -f /etc/default/grub ]; then
+
+	 db_get shared/plymouth/resolution
+         resolution="$RET"
+
+        vesa_resolution=788 # 800x600
+         case "$resolution" in
+             "1366x768x32")
+                 vesa_resolution=871
+             ;;
+             "1024x600x32")
+                 vesa_resolution=881
+             ;;
+         esac
+
+         sed -i -e 's,#GRUB_GFXMODE,GRUB_GFXMODE,g' \
+                -e "/GRUB_GFXMODE=/ s/=.*/=$resolution/" \
+                -e "/GRUB_CMDLINE_LINUX_DEFAULT=/ s/=.*/=\"quiet splash vga=$vesa_resolution\"/" \
+                /etc/default/grub
+       fi
+
+       # podemos setear al theme?
+       if [ -x /usr/sbin/plymouth-set-default-theme ];
+       then
+           # actualizame al grub.
+
+           db_get shared/plymouth/active-theme
+           active_theme="$RET";
+
+           if [ "$active_theme" = "true" ]; then
+               plymouth-set-default-theme huayra-pba;
+           fi
+
+       fi
+
+#       # hay grub? podemos actualizar?
+#       ##if [ -n "`which update-grub2`" ];
+#        if which update-grub2 >/dev/null 2>&1
+#        then
+#                 # actualizame al grub.
+#                 update-grub2;
+#        fi
+
+
+       # podemos generar la imagen?
+        if which update-initramfs >/dev/null 2>&1
+        then
+            update-initramfs -u
+        fi
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+
+esac
+
+#DEBHELPER#
+
+exit 0

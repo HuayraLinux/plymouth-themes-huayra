@@ -1,3 +1,9 @@
+plymouth-themes-huayra (3.1.11) unstable; urgency=medium
+
+  * agregado theme pba 
+
+ -- Fernando Toledo <ragnarok@docksud.com.ar>  Wed, 26 Jul 2023 14:54:36 -0300
+
 plymouth-themes-huayra (3.1.10) unstable; urgency=medium
 
   * Correcciones en la animacion del tema huayra-6

@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Huayra-pba
+Description=Muestra burbujas y vaca por el costado
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/huayra-pba/
+ScriptFile=/usr/share/plymouth/themes/huayra-pba/huayra-pba.script
