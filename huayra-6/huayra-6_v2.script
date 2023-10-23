@@ -87,19 +87,19 @@ fun refresh_callback()
             //cuadros = 0;
 			panaderos_sprite.SetImage(panaderos_imagenes[cuadros]);
 			cuadros++;
-			if (alpha_logo < 100){
+			/*if (alpha_logo < 100){
 				alpha_logo += 3;
 				logos_sprite.SetOpacity(alpha_logo/100);
-				}
+				}*/
 		}
 		panaderos_sprite.SetImage(final_img);	
-		if (alpha_logo >= 100){
+		/*if (alpha_logo >= 100){
 			alpha_logo -= 5;
 			}
 		else if (alpha_logo < 60){
 			alpha_logo += 5;
-			}
-		logos_sprite.SetOpacity(alpha_logo/100);
+			}*/
+		panaderos_sprite.SetOpacity(alpha_logo/100);
 		
 	}
 

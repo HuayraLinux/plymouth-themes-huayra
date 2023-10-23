@@ -5,4 +5,4 @@ ModuleName=script
 
 [script]
 ImageDir=/usr/share/plymouth/themes/huayra-6/
-ScriptFile=/usr/share/plymouth/themes/huayra-6/huayra-6_v2.script
+ScriptFile=/usr/share/plymouth/themes/huayra-6/huayra-6.script
